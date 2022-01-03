@@ -28,7 +28,7 @@ void draw_snake(Snake * snake)
     }
 }
 
-void update_snake(Snake * snake, char c)
+void update_snake(Snake * snake)
 {
     //We will update snake's position based on the c char variable
     switch (snake->direction)

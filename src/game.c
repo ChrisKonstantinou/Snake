@@ -6,18 +6,7 @@
 #include "../lib/gfx.h"
 #include "../lib/snake.h"
 #include "../lib/food.h"
-
-int mssleep(long miliseconds)
-{
-   struct timespec rem;
-   struct timespec req= {
-       (int)(miliseconds / 1000),
-       (miliseconds % 1000) * 1000000
-   };
-
-   return nanosleep(&req , &rem);
-}
-
+#include "../lib/timebase.h"
 
 int main () 
 {
@@ -36,7 +25,7 @@ int main ()
     {
         
         draw_snake(&snake);
-        update_snake(&snake, c);
+        update_snake(&snake);
         add_food(&food, xsize, ysize);
         
 
