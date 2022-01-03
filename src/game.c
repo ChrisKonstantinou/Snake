@@ -38,7 +38,6 @@ int main ()
             if (c == 'w') snake.direction = 'U';
             if (c == 's') snake.direction = 'D';
             
-            printf("%c\n", c);
         }
         mssleep(200);
     }
