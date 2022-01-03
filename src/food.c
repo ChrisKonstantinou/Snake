@@ -23,7 +23,7 @@ void add_food(Food * food, int screen_size_x, int screen_size_y)
     food->y = rand() % screen_size_y;
 
     gfx_rect(food->x, food->y, food->size, food->size);
-      
+
 }
 
 
