@@ -10,17 +10,19 @@
 
 void init_food(Food * food)
 {
+    srand(time(0));
+
     food->x = 0;
     food->y = 0;
 
-    food->size = 35;
+    food->size = GLOBAL_SIZE;
     food->is_eaten = false;
 }
 
 void change_location(Food * food, int screen_size_x, int screen_size_y)
 {
     //While loop adds 1 to the food.x and food.y values until it 'fits' inside an acceptable square
-    srand(time(0));
+    
     food->x = rand() % (screen_size_x - 2 * food->size);
     while (food->x % food->size != 0) food->x ++;
     

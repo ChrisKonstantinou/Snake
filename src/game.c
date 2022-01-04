@@ -26,6 +26,8 @@ int main ()
 
     while (1)
     {
+        gfx_clear();
+
         draw_snake(&snake);
 
         if (food.is_eaten)
@@ -50,8 +52,11 @@ int main ()
         }
 
         update_snake(&snake, xsize, ysize);
+
+        if (snake.x == food.x && snake.y == food.y) food.is_eaten = true;
         
-        mssleep(100);
+
+        mssleep(50);
     }
 
     return 0;

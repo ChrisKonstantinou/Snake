@@ -12,14 +12,13 @@ void init_snake(Snake * snake)
     snake->alive = true;
     snake->length = 1;
 
-    snake->size = 35;
+    snake->size = GLOBAL_SIZE;
     snake->direction = 'R';
     
 }
 
 void draw_snake(Snake * snake)
 {
-    gfx_clear();
     gfx_color(255, 255, 255);
 
     for (int i = 0; i < snake->length; i++)

@@ -4,7 +4,7 @@
 #include <stdbool.h>
 #include "../lib/gfx.h"
 
-
+#define GLOBAL_SIZE 15
 
 typedef struct
 {
