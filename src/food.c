@@ -17,30 +17,17 @@ void init_food(Food * food)
     food->is_eaten = false;
 }
 
-void add_food(Food * food, int screen_size_x, int screen_size_y)
-{
-    //This function is not used 
-    
-    /*
-    if (food->is_eaten) return;
-
-    food->x = rand() % screen_size_x;
-    food->y = rand() % screen_size_y;
-
-    gfx_rect(food->x, food->y, food->size, food->size);
-    */
-    return;
-}
-
 void change_location(Food * food, int screen_size_x, int screen_size_y)
 {
+    //While loop adds 1 to the food.x and food.y values until it 'fits' inside an acceptable square
     srand(time(0));
-    food->x = rand() % screen_size_x;
+    food->x = rand() % (screen_size_x - 2 * food->size);
     while (food->x % food->size != 0) food->x ++;
     
-    food->y = rand() % screen_size_y;
+    food->y = rand() % (screen_size_y - 2 * food->size);
     while (food->y % food->size != 0) food->y ++;
 }
+
 
 void draw_food(Food * food)
 {

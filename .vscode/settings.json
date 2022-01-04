@@ -1,6 +1,17 @@
 {
     "files.associations": {
         "stdio.h": "c",
-        "timebase.h": "c"
+        "timebase.h": "c",
+        "atomic": "c",
+        "*.tcc": "c",
+        "bitset": "c",
+        "string": "c",
+        "vector": "c",
+        "string_view": "c",
+        "random": "c",
+        "fstream": "c",
+        "sstream": "c",
+        "type_traits": "c",
+        "*.txx": "c"
     }
 }
