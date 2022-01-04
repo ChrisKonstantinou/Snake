@@ -28,31 +28,33 @@ void draw_snake(Snake * snake)
     }
 }
 
-void update_snake(Snake * snake)
+void update_snake(Snake * snake, int screen_size_x, int screen_size_y)
 {
     //We will update snake's position based on the c char variable
+    //U is for up, R is for right, L is for left, D is for down
     switch (snake->direction)
     {
-
         case 'U':
-            printf("Snake up\n");
             snake->y -= snake->size;
             break;
         case 'R':
-            printf("Snake right\n");
             snake->x += snake->size;
             break;
         case 'L':
-            printf("Snake left\n");
             snake->x -= snake->size;
             break;
         case 'D':
-            printf("Snake down\n");
             snake->y += snake->size;
             break;
 
         default:
             break;
     }
+
+    if (snake->x >= screen_size_x) snake->x = 0;
+    if (snake->x < 0) snake->x = screen_size_x;
+
+    if (snake->y >= screen_size_y) snake->y = 0;
+    if (snake->y < 0) snake->y = screen_size_y;
 
 }

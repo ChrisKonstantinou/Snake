@@ -3,6 +3,7 @@
 #include <time.h>
 #include <errno.h>
 #include <unistd.h>
+#include <pthread.h>
 #include "../lib/gfx.h"
 #include "../lib/snake.h"
 #include "../lib/food.h"
@@ -18,16 +19,22 @@ int main ()
     Food food;
 
     gfx_open(xsize, ysize, "Snake");
+
     init_snake(&snake);
     init_food(&food);
+    change_location(&food, xsize, ysize);
 
     while (1)
     {
-        
         draw_snake(&snake);
-        update_snake(&snake);
-        add_food(&food, xsize, ysize);
-        
+
+        if (food.is_eaten)
+        {
+            change_location(&food, xsize, ysize);
+            food.is_eaten = false;
+        }
+
+        draw_food(&food);
 
         if (gfx_event_waiting())
         {
@@ -37,9 +44,14 @@ int main ()
             if (c == 'd') snake.direction = 'R';
             if (c == 'w') snake.direction = 'U';
             if (c == 's') snake.direction = 'D';
+
+            if (c == 'f') food.is_eaten = true;
             
         }
-        mssleep(200);
+
+        update_snake(&snake, xsize, ysize);
+        
+        mssleep(100);
     }
 
     return 0;

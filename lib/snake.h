@@ -21,6 +21,6 @@ typedef struct
 
 void init_snake(Snake *);
 void draw_snake(Snake *);
-void update_snake(Snake *);
+void update_snake(Snake *, int, int);
 
 #endif

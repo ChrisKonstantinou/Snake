@@ -14,6 +14,8 @@ typedef struct
 } Food;
 
 void init_food(Food *);
-void add_food(Food *, int , int);
+//void add_food(Food *, int , int);
+void change_location(Food *, int , int);
+void draw_food(Food *);
 
 #endif
